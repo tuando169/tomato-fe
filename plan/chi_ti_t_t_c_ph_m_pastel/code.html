@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thông tin Tác phẩm</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#d1e8d9",
+              "on-secondary": "#ecfdf1",
+              "outline": "#767c7b",
+              "inverse-surface": "#0c0f0e",
+              "outline-variant": "#adb3b2",
+              "error": "#a83836",
+              "surface-variant": "#dee4e2",
+              "inverse-primary": "#e4fced",
+              "surface-tint": "#4f6458",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#2e3433",
+              "primary": "#4f6458",
+              "inverse-on-surface": "#9b9d9d",
+              "surface-container-highest": "#dee4e2",
+              "on-primary": "#e7fff0",
+              "primary-fixed": "#d1e8d9",
+              "tertiary-container": "#f0fdf3",
+              "on-tertiary": "#effcf3",
+              "surface": "#f9f9f8",
+              "on-tertiary-fixed-variant": "#606c65",
+              "on-secondary-fixed": "#34433a",
+              "tertiary": "#56625b",
+              "tertiary-fixed": "#f0fdf3",
+              "primary-fixed-dim": "#c3dacc",
+              "surface-container-low": "#f2f4f3",
+              "secondary-fixed": "#d6e7db",
+              "tertiary-fixed-dim": "#e1eee5",
+              "on-secondary-fixed-variant": "#505f56",
+              "primary-dim": "#43584d",
+              "on-tertiary-fixed": "#445049",
+              "on-primary-fixed": "#2f4439",
+              "background": "#f9f9f8",
+              "on-secondary-container": "#46554c",
+              "on-tertiary-container": "#56625b",
+              "on-error": "#fff7f6",
+              "surface-dim": "#d6dbda",
+              "on-error-container": "#6e0a12",
+              "secondary-fixed-dim": "#c8d9cd",
+              "tertiary-dim": "#4a564f",
+              "on-surface-variant": "#5a6060",
+              "secondary-dim": "#47574d",
+              "secondary-container": "#d6e7db",
+              "error-dim": "#67040d",
+              "error-container": "#fa746f",
+              "surface-container-high": "#e5e9e8",
+              "secondary": "#536359",
+              "on-primary-container": "#42564b",
+              "on-background": "#2e3433",
+              "on-primary-fixed-variant": "#4b6055",
+              "surface-bright": "#f9f9f8",
+              "surface-container": "#ebefed"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/40 dark:bg-emerald-950/40 backdrop-blur-md shadow-sm shadow-emerald-900/5 transition-opacity ease-in-out">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="font-serif italic text-2xl text-emerald-900 dark:text-emerald-50">Phòng triển lãm Ethereal</div>
+<div class="hidden md:flex gap-10">
+<a class="font-serif text-lg tracking-tight text-emerald-800 dark:text-emerald-200 border-b border-emerald-200 pb-1 transition-colors duration-300" href="#">Bộ sưu tập</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 dark:text-emerald-300/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors duration-300" href="#">Triển lãm</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 dark:text-emerald-300/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors duration-300" href="#">Studio</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 dark:text-emerald-300/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors duration-300" href="#">Giới thiệu</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 dark:text-emerald-300/60 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors duration-300" href="#">Liên hệ</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-2.5 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-primary-dim transition-colors duration-300">
+                Tìm hiểu
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Artwork Hero Section -->
+<section class="max-w-[1920px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left: Image Gallery (Asymmetric Layout) -->
+<div class="lg:col-span-7 space-y-8">
+<div class="relative bg-surface-container-low p-4 lg:p-8 rounded-xl overflow-hidden shadow-sm">
+<img alt="Main Artwork View" class="w-full h-auto object-cover rounded-lg shadow-2xl" data-alt="Close-up of a dreamy abstract painting featuring ethereal sage and mint green brushstrokes with subtle gold leaf accents and soft textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3JoR0mwOwskji35kZCtuoLpkm3s0CEeovSlm0h_ilmliSfbFzL0nXMRhO6owIFtBNGrFZpoCR0y4n38cMRikAUZzgalGw3c5n1h-SxHBLBptk12wTlHNraeunXmH2eI2tqW9xpbwkM8TijQDmMnMxeRcuueSueLxn_t8MMabnbwPHh3eRoUVDAVqQ2FnYK4Y8K-xJTZ8gwsdzpNFZ84FC3i6GuwdrgaUELTGq1OOBBdGczl2RszKX5FgB8kgUlQryk75WpsfKfs22"/>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-4">
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container rounded-lg overflow-hidden cursor-pointer ring-2 ring-primary">
+<img alt="Detail view 1" class="w-full h-full object-cover" data-alt="Extreme close-up of thick oil paint textures in shades of seafoam green and white on a canvas surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMCh_50SF4Sz6DivAgkMsoc-DNPVgV0PN9kTb2AeQLU_TpphjgmXLs8Ur4rz1wGRRMdMNd9gom9PgNekutqvCAja5I8TmCdXV2TMa7lIxcsVuZ2_ArBrBmqVDfoM16MR8B6-0aU1mScwM7TWy5rIrHC4PJcN0GpLLk8IKp0_dKf_GJP1_n0gUuakpsHfcjxHZdgkVwTbJrLswxoW7q6smRWsDUPhg9GWKu_M1ewgVOV_6tvOuS21ZGjPSKH5VGGa6sC9TeHemaH-Fc"/>
+</div>
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container rounded-lg overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary-container transition-all">
+<img alt="Detail view 2" class="w-full h-full object-cover" data-alt="Side profile view of a framed painting hanging on a clean white gallery wall with soft natural sunlight hitting the surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgw4bXXa7BCuQaBBsV4w05Nh1bN7ir8xI9-7cES1mpihEEIs2hn-GaOF6_ihuT3fv9OLDpeA7bQcpwmaXm33n1Iozte8ILbGIsT6lc5U80AxWN88czEftxz-VQFMO9-6pIcF3YqL8YnKukw4-jSEgSvktypb3BWHZa_joIydc2uGvVYNeEoD4rEkih1lo3kl1BbZPVzjUZTNMkmCmScjxyfb5nNKaMf6PhJcakTf64YXwNCJ1EC7WCD2Lr4XaXFcJKKwMEayZE5E1o"/>
+</div>
+<div class="flex-shrink-0 w-32 h-32 bg-surface-container rounded-lg overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary-container transition-all">
+<img alt="Detail view 3" class="w-full h-full object-cover" data-alt="Artist studio setting with paint brushes and palettes in the background, focusing on the edges of the artwork in progress" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbx1acGaqF7f5tJhOor1pk-6-v2QWLrheGbosYeiDl7l1KifCMWJDdwgIpShTALRG9C7pTY26BfSBjqgrlHLB7XGDeSJ_eqUDs7euxG6Gfrt4loT05QL5nVn3eBQN2BBDa3r_dxXVMswABOET3S16yql94LmzZm-lmxqzYv8g0MdAXCouZ9Ku5kQWMqQvdBXEqmuMVsw8CfI72PKWzjGvVdCI_ob2a_0CWr5FTtEdUzdRIkZjA5pkBy502ThwkAc1RVbfj5XOMuxOq"/>
+</div>
+</div>
+</div>
+<!-- Right: Details & Action -->
+<div class="lg:col-span-5 lg:sticky lg:top-40">
+<div class="space-y-12">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-label font-bold tracking-[0.2em] px-3 py-1 rounded-full uppercase">Sơn dầu trên vải</span>
+<span class="text-outline-variant font-label text-[10px] tracking-[0.2em] uppercase">Mã số. #EG-2024-012</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-headline text-on-surface leading-[1.1]">Lời thì thầm của <br/><span class="italic text-primary">Khu rừng Linh thiêng</span></h1>
+<p class="text-xl font-headline italic text-on-surface-variant">Elena Vance, 2024</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl space-y-8">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h4 class="font-label text-[10px] text-outline uppercase tracking-[0.15em] mb-2">Chất liệu</h4>
+<p class="text-sm font-medium text-on-surface">Sơn dầu, Bột màu, Lá vàng</p>
+</div>
+<div>
+<h4 class="font-label text-[10px] text-outline uppercase tracking-[0.15em] mb-2">Kích thước</h4>
+<p class="text-sm font-medium text-on-surface">48 x 60 inches</p>
+</div>
+<div>
+<h4 class="font-label text-[10px] text-outline uppercase tracking-[0.15em] mb-2">Trạng thái</h4>
+<p class="text-sm font-medium text-primary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Có sẵn
+                                </p>
+</div>
+<div>
+<h4 class="font-label text-[10px] text-outline uppercase tracking-[0.15em] mb-2">Chứng nhận</h4>
+<p class="text-sm font-medium text-on-surface">Bao gồm (Có chữ ký)</p>
+</div>
+</div>
+<div class="pt-4 space-y-4">
+<button class="w-full bg-primary text-on-primary py-5 rounded-lg font-label text-sm font-bold uppercase tracking-[0.2em] shadow-lg shadow-primary/10 hover:bg-primary-dim hover:scale-[1.01] transition-all duration-300">
+                                Liên hệ Mua
+                            </button>
+<button class="w-full bg-surface-container-lowest text-on-primary-container border border-primary-container/30 py-4 rounded-lg font-label text-sm uppercase tracking-[0.15em] hover:bg-surface-container transition-all">
+                                Yêu cầu xem trực tiếp
+                            </button>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-headline text-2xl text-on-surface">Lời tự sự</h3>
+<p class="text-on-surface-variant leading-relaxed font-body font-light text-lg">
+                            "Lời thì thầm của Khu rừng Linh thiêng" khám phá sự giao thoa giữa ký ức và thực tại thực vật. Thông qua các lớp bột màu xám xanh và bạc hà mờ ảo, Vance tạo ra cảm giác về chiều sâu mô phỏng trải nghiệm nhìn qua tán lá rừng rậm rạp. Những điểm nhấn bằng lá vàng tượng trưng cho bản chất phù du của ánh sáng bắt gặp những giọt sương lúc bình minh.
+                        </p>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-xl">palette</span>
+<span class="text-sm font-medium tracking-wide">Thuộc bộ sưu tập 'Thực vật Huyền bí'</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider Space -->
+<div class="h-48"></div>
+<!-- Related Works Section -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-[1920px] mx-auto px-6 md:px-12">
+<div class="flex justify-between items-end mb-16">
+<div class="space-y-2">
+<h5 class="font-label text-[11px] text-primary uppercase tracking-[0.3em] font-bold">Lựa chọn Giám tuyển</h5>
+<h2 class="text-4xl font-headline text-on-surface">Tác phẩm liên quan</h2>
+</div>
+<a class="text-on-surface-variant font-label text-xs uppercase tracking-widest border-b border-outline-variant pb-1 hover:text-primary transition-all" href="#">Xem tất cả</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-high rounded-xl overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Related 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Soft minimalist painting with gradient washes of seafoam green and pale cream, suggesting a quiet misty landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyUcszbRlgzkAkP9d9WnAm1UQePDzaRff4jHnnID8EMoWJ5BDAHWwzliPPsCTdm5cBF99AaR5_sRvhWb0k7tW9Bv3MF9_E53Kv1Ad2IAsALlqN37deXfD8Fkto_B6mkMXBFgynZM_IrUMXxZO3dED5H1nKL77EDeV8snNPEDFJhJuCY-WS5ZVRyzgdwHfGmkapyOT_CA3a4gMaNMzSRFSkHOWQKVh7xxmkuiKB9Ym3czh-dFK_MVWizCH9Nb1OGg5oQWhe2NLIKoKb"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</div>
+<div class="space-y-1 px-2">
+<p class="text-[10px] font-label text-outline uppercase tracking-widest">Đa chất liệu, 2023</p>
+<h4 class="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">Tĩnh lặng sau mưa</h4>
+<p class="text-sm font-light italic text-on-surface-variant">36 x 48 inches</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer translate-y-12 md:translate-y-24 lg:translate-y-12">
+<div class="bg-surface-container-high rounded-xl overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Related 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Vertical abstract composition featuring vertical drips and textured layers of mint green, forest green, and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjuqBNbUrYKLVv_VAJdH68EBEwKSRklTra71pWU54ZXS49ArDoWI14ZVKhpc5Xd6dp3xM3t4Ejk_UJxjSxjxhCYOU3SVpXAewWrxT4NdbpdKHzXPcl1H9lKFq2HPfSUh2R7L9HPJQ66nIBqBW5aEhwOHIKuMyAuw1e0eX1IzewRGwbRSHzRfUZ9zv3lHUsqfsC8MHAyTLCy3VGX88o6Uj1rO6atLxS95IE9LscSY1e8-O8OSbmIuCxWDY8ERO7XmlOA41DD2NBWw3V"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</div>
+<div class="space-y-1 px-2">
+<p class="text-[10px] font-label text-outline uppercase tracking-widest">Sơn dầu trên vải lanh, 2024</p>
+<h4 class="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">Tiếng vang Lục bảo</h4>
+<p class="text-sm font-light italic text-on-surface-variant">40 x 50 inches</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-high rounded-xl overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Related 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Circular canvas featuring soft swirling patterns of sage green and translucent gray, evoking liquid motion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm-oER-dSETaFvDF4Sfcu_Qj1eYGc9e-Lmphc21Ny0zRnYdmPX-kbBdDeO4B5O2YHgGtCUYfSzGq1BaHtARsGSaoKqgqs7GoV56cmkbFlEkM-Uqfr_6MO8u3zfIr14_0UbAOQqv3PcFZmSI4NB6UDagqhQKIEcLKOG1ejFYeQRN8jB_BQ2joL4upCOCLU57esoMyVFUtCNA86uRuG0kAyKkpGHluIzsnefg4o0blH8HK5XBSMcxIF_ueJTfJp0URNFYVOIdY0vHRGQ"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</div>
+<div class="space-y-1 px-2">
+<p class="text-[10px] font-label text-outline uppercase tracking-widest">Acrylic trên gỗ, 2024</p>
+<h4 class="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">Quỹ đạo Xanh tươi</h4>
+<p class="text-sm font-light italic text-on-surface-variant">30 inches (Đường kính)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-emerald-50 dark:bg-emerald-950 w-full py-16 px-12 transition-opacity opacity-80 hover:opacity-100">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
+<div class="font-serif text-lg text-emerald-900 dark:text-emerald-50">Phòng triển lãm Ethereal</div>
+<div class="flex gap-8">
+<a class="font-sans text-xs uppercase tracking-widest text-emerald-800/40 dark:text-emerald-200/40 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors" href="#">Chính sách Bảo mật</a>
+<a class="font-sans text-xs uppercase tracking-widest text-emerald-800/40 dark:text-emerald-200/40 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors" href="#">Điều khoản Dịch vụ</a>
+<a class="font-sans text-xs uppercase tracking-widest text-emerald-800/40 dark:text-emerald-200/40 hover:text-emerald-900 dark:hover:text-emerald-50 transition-colors" href="#">Giao hàng &amp; Trả hàng</a>
+</div>
+<div class="font-sans text-xs uppercase tracking-widest text-emerald-900 dark:text-emerald-50">
+                © 2024 Phòng triển lãm Ethereal. Bảo lưu mọi quyền.
+            </div>
+</div>
+</footer>
+</body></html>

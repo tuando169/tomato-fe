@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đặt vẽ theo yêu cầu | The Ethereal Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#d1e8d9",
+              "on-secondary": "#ecfdf1",
+              "outline": "#767c7b",
+              "inverse-surface": "#0c0f0e",
+              "outline-variant": "#adb3b2",
+              "error": "#a83836",
+              "surface-variant": "#dee4e2",
+              "inverse-primary": "#e4fced",
+              "surface-tint": "#4f6458",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#2e3433",
+              "primary": "#4f6458",
+              "inverse-on-surface": "#9b9d9d",
+              "surface-container-highest": "#dee4e2",
+              "on-primary": "#e7fff0",
+              "primary-fixed": "#d1e8d9",
+              "tertiary-container": "#f0fdf3",
+              "on-tertiary": "#effcf3",
+              "surface": "#f9f9f8",
+              "on-tertiary-fixed-variant": "#606c65",
+              "on-secondary-fixed": "#34433a",
+              "tertiary": "#56625b",
+              "tertiary-fixed": "#f0fdf3",
+              "primary-fixed-dim": "#c3dacc",
+              "surface-container-low": "#f2f4f3",
+              "secondary-fixed": "#d6e7db",
+              "tertiary-fixed-dim": "#e1eee5",
+              "on-secondary-fixed-variant": "#505f56",
+              "primary-dim": "#43584d",
+              "on-tertiary-fixed": "#445049",
+              "on-primary-fixed": "#2f4439",
+              "background": "#f9f9f8",
+              "on-secondary-container": "#46554c",
+              "on-tertiary-container": "#56625b",
+              "on-error": "#fff7f6",
+              "surface-dim": "#d6dbda",
+              "on-error-container": "#6e0a12",
+              "secondary-fixed-dim": "#c8d9cd",
+              "tertiary-dim": "#4a564f",
+              "on-surface-variant": "#5a6060",
+              "secondary-dim": "#47574d",
+              "secondary-container": "#d6e7db",
+              "error-dim": "#67040d",
+              "error-container": "#fa746f",
+              "surface-container-high": "#e5e9e8",
+              "secondary": "#536359",
+              "on-primary-container": "#42564b",
+              "on-background": "#2e3433",
+              "on-primary-fixed-variant": "#4b6055",
+              "surface-bright": "#f9f9f8",
+              "surface-container": "#ebefed"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Điều hướng -->
+<nav class="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-md no-border bg-gradient-to-b from-white/10 to-transparent shadow-sm shadow-emerald-900/5">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<span class="font-serif italic text-2xl text-emerald-900">The Ethereal Gallery</span>
+<div class="hidden md:flex gap-10">
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 hover:text-emerald-900 transition-colors duration-300" href="#">Bộ sưu tập</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 hover:text-emerald-900 transition-colors duration-300" href="#">Triển lãm</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 hover:text-emerald-900 transition-colors duration-300" href="#">Xưởng vẽ</a>
+<a class="font-serif text-lg tracking-tight text-emerald-700/60 hover:text-emerald-900 transition-colors duration-300" href="#">Giới thiệu</a>
+<a class="font-serif text-lg tracking-tight text-emerald-800 border-b border-emerald-200 pb-1 hover:text-emerald-900 transition-colors duration-300" href="#">Liên hệ</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-md font-body text-sm uppercase tracking-widest hover:bg-primary-dim transition-colors">
+            Yêu cầu
+        </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-20 text-center space-y-4">
+<div class="inline-block bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase mb-4">
+            Độc quyền đặt vẽ
+        </div>
+<h1 class="text-5xl md:text-7xl text-on-surface leading-tight">Khởi đầu <br/><span class="italic font-normal">Kiệt tác</span> của riêng bạn</h1>
+<p class="max-w-2xl mx-auto text-on-surface-variant font-body text-lg leading-relaxed pt-4">
+            Cùng chúng tôi hiện thực hóa tầm nhìn của bạn. Từ những nghiên cứu thực vật đến trừu tượng huyền ảo, mỗi yêu cầu là một hành trình sáng tạo chung.
+        </p>
+</header>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left Side: Aesthetic & Info -->
+<div class="lg:col-span-5 space-y-12">
+<div class="aspect-[4/5] rounded-xl overflow-hidden bg-surface-container shadow-2xl shadow-primary/5 relative">
+<img alt="Tác phẩm đặt vẽ" class="w-full h-full object-cover" data-alt="Soft ethereal painting of a blooming peony with sage green leaves and pastel highlights in a studio setting with natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcaaLR4JpZsMmkwabhuY-lUd14MUh3mBNIqwREb4_q214vmMyk1FMbCD09nZR07va7DVdzVI6_-67hd11KZnQHxHo5ebR7u-u_uxvhI1UyZwEyWz9P-QAz1yUikG2lssGjqle8Rp5xpPfvJL-u0LinqHQCHTp2pOnbi3EcNBkGBCjkY0FiAbzvfNvj6YY1wgTrp82WNDAth52FdQL8G6uu3tZI1JdQvfMJ-oK5UKGdKiSsqQf2vwyBz-1RITBckk2_v0A2EnOjuwLN"/>
+<div class="absolute bottom-6 left-6 right-6 bg-white/40 backdrop-blur-xl p-6 rounded-lg">
+<span class="block font-label text-[10px] uppercase tracking-widest text-primary mb-2">Đang nhận đặt vẽ</span>
+<p class="font-headline text-xl text-primary-dim italic">Đang tiếp nhận 3 dự án mới cho Mùa Thu.</p>
+</div>
+</div>
+<div class="space-y-6 px-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">brush</span>
+<div>
+<h3 class="text-xl font-headline mb-1">Quy trình riêng biệt</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Mỗi tác phẩm đều trải qua tư vấn chi tiết, nghiên cứu màu sắc và cập nhật tiến độ để đảm bảo sự hòa hợp tuyệt đối với không gian của bạn.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">schedule</span>
+<div>
+<h3 class="text-xl font-headline mb-1">Thời gian dự kiến</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Thường mất từ 8–12 tuần tùy thuộc vào kích thước và chất liệu. Có dịch vụ hoàn thành gấp theo yêu cầu đặc biệt.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Commission Form -->
+<div class="lg:col-span-7 bg-surface-container-low p-8 md:p-12 rounded-xl relative">
+<!-- Tonal Background Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/20 rounded-bl-full -z-10"></div>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Name -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Họ và Tên</label>
+<input class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant/60" placeholder="Họ và tên của bạn" type="text"/>
+</div>
+<!-- Email -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Địa chỉ Email</label>
+<input class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant/60" placeholder="email@vi-du.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project Type -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Loại yêu cầu</label>
+<select class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest appearance-none">
+<option>Sơn dầu trên vải</option>
+<option>Màu nước thảo mộc</option>
+<option>Trừu tượng huyền ảo</option>
+<option>Chân dung chì</option>
+</select>
+</div>
+<!-- Dimensions -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Kích thước mong muốn</label>
+<input class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant/60" placeholder="vd: 60 x 90 cm" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Budget -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Ngân sách</label>
+<div class="relative">
+<span class="absolute left-4 top-3.5 text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-highest border-none rounded-sm pl-8 pr-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant/60" placeholder="2.000+" type="number"/>
+</div>
+</div>
+<!-- Deadline -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Hạn hoàn thành</label>
+<input class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all text-on-surface-variant" type="date"/>
+</div>
+</div>
+<!-- Project Brief -->
+<div class="space-y-2">
+<label class="block font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Ý tưởng tác phẩm</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-3 focus:ring-1 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant/60" placeholder="Mô tả cảm xúc, màu sắc và cảm hứng cho tác phẩm của bạn..." rows="5"></textarea>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary text-on-primary py-5 rounded-md font-body text-xs uppercase tracking-[0.2em] font-bold hover:bg-primary-dim transition-all shadow-xl shadow-primary/10" type="submit">
+                        Gửi yêu cầu đặt vẽ
+                    </button>
+<p class="text-center text-[10px] text-outline-variant mt-6 uppercase tracking-widest">
+                        Thời gian phản hồi dự kiến: 2-3 Ngày làm việc
+                    </p>
+</div>
+</form>
+</div>
+</div>
+<!-- Section Transition -->
+<div class="mt-32 py-20 bg-surface-container-high rounded-xl overflow-hidden relative">
+<div class="max-w-4xl mx-auto text-center px-6">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">spa</span>
+<h2 class="text-3xl md:text-4xl text-on-surface italic mb-4">"Nghệ thuật là cách duy nhất để chạy trốn mà không cần rời khỏi nhà."</h2>
+<p class="font-label text-xs uppercase tracking-[0.3em] text-primary">Twyla Tharp</p>
+</div>
+<!-- Decorative botanical image fade -->
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<img alt="Nền thảo mộc" class="w-full h-full object-cover" data-alt="Faded monochrome botanical sketch of delicate wildflower stems on a textured paper background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5CzcgMYfPcKXvWsZ30rBxiT52sPCcQox7mEnV5RF5kcse_yJt8H-hCJ14McmQgjqd54lJHQmmaXNGRONpK1tnpP6evOl9hu2iZ5YW13nZ07G1lT5O5c2aE9t6pv5s5fwY1M4t536Kx2DTdORjW2rSlaCUOLNggVgCp5I9LnqRgzublYlDPP8X1pb6Ve9jNfGlS34yAE3yNCiXoKxArZweRwdtbu8ENIZalmYWsOofr5Wg9x29sP_idfQVAxugyWuXcd0QLKzItQ3o"/>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 bg-emerald-50 text-emerald-900">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full">
+<div class="space-y-4 text-center md:text-left">
+<span class="font-serif text-lg">The Ethereal Gallery</span>
+<p class="font-sans text-xs uppercase tracking-widest opacity-60">© 2024 The Ethereal Gallery. Bảo lưu mọi quyền.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-sans text-xs uppercase tracking-widest text-emerald-800/40 hover:text-emerald-900 transition-colors" href="#">Chính sách bảo mật</a>
+<a class="font-sans text-xs uppercase tracking-widest text-emerald-800/40 hover:text-emerald-900 transition-colors" href="#">Điều khoản dịch vụ</a>
+<a class="font-sans text-xs uppercase tracking-widest text-emerald-800/40 hover:text-emerald-900 transition-colors" href="#">Giao hàng &amp; Trả hàng</a>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined opacity-60 cursor-pointer hover:opacity-100 transition-opacity">public</span>
+<span class="material-symbols-outlined opacity-60 cursor-pointer hover:opacity-100 transition-opacity">mail</span>
+<span class="material-symbols-outlined opacity-60 cursor-pointer hover:opacity-100 transition-opacity">photo_camera</span>
+</div>
+</div>
+</footer>
+</body></html>

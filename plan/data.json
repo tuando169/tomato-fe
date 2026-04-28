@@ -1,0 +1,179 @@
+{
+  "artist": {
+    "name": "Elena Vance",
+    "experienceYears": 12,
+    "completedWorks": 140,
+    "soloExhibitions": 8,
+    "philosophy": "Khám phá sự giao thoa giữa ánh sáng khí quyển và hình học hữu cơ. Các tác phẩm của Elena Vance đóng vai trò như một cuộc đối thoại thầm lặng giữa thế giới hữu hình và bản chất phù du của ký ức.",
+    "contact": {
+      "address": "72 Art District South, Vancouver, BC",
+      "email": "studio@elenavance.art"
+    }
+  },
+  "collections": [
+    {
+      "id": "col_1",
+      "name": "Thực vật Huyền bí",
+      "year": 2024,
+      "description": "Những nghiên cứu sơn dầu được tuyển chọn cho không gian hiện đại."
+    },
+    {
+      "id": "col_2",
+      "name": "Nghiên cứu Chất liệu",
+      "year": 2023,
+      "description": "Sự tuyển chọn các khám phá gần đây về ánh sáng và sắc tố."
+    },
+    {
+      "id": "col_3",
+      "name": "Lưu trữ Thảo mộc",
+      "year": 2023,
+      "description": "Một hành trình khám phá thực vật được tuyển chọn kỹ lưỡng qua các sắc độ xám xanh, bạc hà và xanh rừng."
+    }
+  ],
+  "artworks": [
+    {
+      "id": "art_1",
+      "code": "EG-2024-012",
+      "title": "Lời thì thầm của Khu rừng Linh thiêng",
+      "material": "Sơn dầu, Bột màu, Lá vàng",
+      "year": 2024,
+      "price": 2400,
+      "collectionId": "col_1",
+      "categoryIds": [
+        "cat_1",
+        "cat_4"
+      ],
+      "dimensions": "48 x 60 inches",
+      "certification": "Bao gồm (Có chữ ký)",
+      "description": "\"Lời thì thầm của Khu rừng Linh thiêng\" khám phá sự giao thoa giữa ký ức và thực tại thực vật. Thông qua các lớp bột màu xám xanh và bạc hà mờ ảo, Vance tạo ra cảm giác về chiều sâu mô phỏng trải nghiệm nhìn qua tán lá rừng rậm rạp. Những điểm nhấn bằng lá vàng tượng trưng cho bản chất phù du của ánh sáng bắt gặp những giọt sương lúc bình minh.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuD3JoR0mwOwskji35kZCtuoLpkm3s0CEeovSlm0h_ilmliSfbFzL0nXMRhO6owIFtBNGrFZpoCR0y4n38cMRikAUZzgalGw3c5n1h-SxHBLBptk12wTlHNraeunXmH2eI2tqW9xpbwkM8TijQDmMnMxeRcuueSueLxn_t8MMabnbwPHh3eRoUVDAVqQ2FnYK4Y8K-xJTZ8gwsdzpNFZ84FC3i6GuwdrgaUELTGq1OOBBdGczl2RszKX5FgB8kgUlQryk75WpsfKfs22",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAMCh_50SF4Sz6DivAgkMsoc-DNPVgV0PN9kTb2AeQLU_TpphjgmXLs8Ur4rz1wGRRMdMNd9gom9PgNekutqvCAja5I8TmCdXV2TMa7lIxcsVuZ2_ArBrBmqVDfoM16MR8B6-0aU1mScwM7TWy5rIrHC4PJcN0GpLLk8IKp0_dKf_GJP1_n0gUuakpsHfcjxHZdgkVwTbJrLswxoW7q6smRWsDUPhg9GWKu_M1ewgVOV_6tvOuS21ZGjPSKH5VGGa6sC9TeHemaH-Fc",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDgw4bXXa7BCuQaBBsV4w05Nh1bN7ir8xI9-7cES1mpihEEIs2hn-GaOF6_ihuT3fv9OLDpeA7bQcpwmaXm33n1Iozte8ILbGIsT6lc5U80AxWN88czEftxz-VQFMO9-6pIcF3YqL8YnKukw4-jSEgSvktypb3BWHZa_joIydc2uGvVYNeEoD4rEkih1lo3kl1BbZPVzjUZTNMkmCmScjxyfb5nNKaMf6PhJcakTf64YXwNCJ1EC7WCD2Lr4XaXFcJKKwMEayZE5E1o",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAbx1acGaqF7f5tJhOor1pk-6-v2QWLrheGbosYeiDl7l1KifCMWJDdwgIpShTALRG9C7pTY26BfSBjqgrlHLB7XGDeSJ_eqUDs7euxG6Gfrt4loT05QL5nVn3eBQN2BBDa3r_dxXVMswABOET3S16yql94LmzZm-lmxqzYv8g0MdAXCouZ9Ku5kQWMqQvdBXEqmuMVsw8CfI72PKWzjGvVdCI_ob2a_0CWr5FTtEdUzdRIkZjA5pkBy502ThwkAc1RVbfj5XOMuxOq"
+      ],
+      "highlight": true
+    },
+    {
+      "id": "art_2",
+      "code": "EG-2024-001",
+      "title": "Bạch đàn I",
+      "material": "Sơn dầu trên vải lanh Bỉ",
+      "year": 2024,
+      "price": 1200,
+      "collectionId": "col_3",
+      "categoryIds": [
+        "cat_1",
+        "cat_4"
+      ],
+      "dimensions": "30x40cm",
+      "certification": "Bao gồm (Có chữ ký)",
+      "description": "Một nghiên cứu tĩnh lặng về ánh sáng qua kẽ lá.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCnkPZYvYeJPMoLdhNfTwt7quxsLjenXb5wV-S1xIifdWdNjV2G1fAxpsbw14Cr7O10Ifz30dFpGxrZUSmViAn4shqz9nYMd13H7xQWl2j1WGnAzP_ss5mXiSGoagjZgnO1VbAnPEykxFpioEeNJJiQKy8PusUhvXc6XfKdUHyU2axDs3nJk9yC_YlnioAq5NmNfT1t99nJ1uYkLm4XE1Brbj8bO0oivRQMFTZ-bSh3D69rAbE8YlnieaopBaWhuT5YoxQiu0Kdbqlo"
+      ],
+      "highlight": true
+    },
+    {
+      "id": "art_3",
+      "code": "EG-2023-045",
+      "title": "Nghiên cứu Dương xỉ IV",
+      "material": "Màu nước trên giấy Arches",
+      "year": 2023,
+      "price": 850,
+      "collectionId": "col_2",
+      "categoryIds": [
+        "cat_2",
+        "cat_6"
+      ],
+      "dimensions": "24x32cm",
+      "certification": "Bao gồm (Có chữ ký)",
+      "description": "Nét cọ mềm mại khám phá hình dáng tự nhiên của dương xỉ.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAnbbFXLdYgbYpLvEyHG_zn_I-SjXI-X6XZAx5Giu8FQp1zF4g1OU6Svq0RfO0t7ccxHK5eFF1E-igTVjL758JOuQAw5o0De2R6j4yXI6E_dl8JlqfZ5RbALpzqpmNJE7PeuowjyPpri9F3QXAURJMUb4gE1M0g_sHOKvwrRuyRt7rXMitT4Sv6hjmFVFedFkxS6j7ckzG637vTH2rX_EnTZ1x1XGIg69AtePOIkeU903rrDAEbRCrriYeUkrXByD1drZkk9dY6ALbl"
+      ],
+      "highlight": false
+    },
+    {
+      "id": "art_4",
+      "code": "EG-2024-023",
+      "title": "Xô thơm Hoang dã",
+      "material": "Chất liệu hỗn hợp",
+      "year": 2024,
+      "price": 850,
+      "collectionId": "col_1",
+      "categoryIds": [
+        "cat_7"
+      ],
+      "dimensions": "20x20cm",
+      "certification": "Bao gồm (Có chữ ký)",
+      "description": "Bản vẽ nét thanh tối giản của cây xô thơm hoang dã trên giấy thủ công có vân.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDL7otbqD-3tjkNahQykBQ9KKhVRrTR0X0CLDFB-YmKi9AofKkyzlW_AoOtBm9NmHidk5wxMBEiG9ahrIvKc2BVlp3zmqGwwGCHYfc5kD9BAaLAjhPu2WXKgE7A9cxpwvIw0IVTXSilZJV_bbrWWduPKvNBrV5S4Meu7sDwO0FBUL1QTlN3dRN_8VUr4avfXnlNZ5gbawgBLDsArsd685oZOGWfdLwwB9jXFZ2sngYYz0AAopUlnL9cXdexruDpMyHX3JHkz_0ciN28"
+      ],
+      "highlight": false
+    },
+    {
+      "id": "art_5",
+      "code": "EG-2023-018",
+      "title": "Sương mai",
+      "material": "Bản in sắc tố lưu trữ",
+      "year": 2023,
+      "price": 500,
+      "collectionId": "col_3",
+      "categoryIds": [
+        "cat_5",
+        "cat_8"
+      ],
+      "dimensions": "50x70cm",
+      "certification": "Bao gồm (Có chữ ký)",
+      "description": "Nhiếp ảnh thảo mộc tông màu trầm của một bông hoa trắng đơn độc.",
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAUuKUzJ-Enix-KURbc9-FgxeD9h_Rv0sYRnRyuMBBjZ3YjhddH8H-Gdy5lthBf4-xCjMOvV2QcoV2TJvs5dVAI_6ePyg0WaR4-DAWI-dHpjJeinC12Np3mkRWwiHB9YDmCW_3-EmxNILoOkGjfIANS3BF5qbNlgzOYp1AkSkROO7nZrwc9wwThNDGo125pXri-r9fVY1JJLS5tTMNcjMo-7DdTvqg2aQ8fsOaUud1_S_-pHQ7FQHfZllJJN4PoU9JPyP5gccTWouYj"
+      ],
+      "highlight": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_1",
+      "type": "material",
+      "name": "Sơn dầu"
+    },
+    {
+      "id": "cat_2",
+      "type": "material",
+      "name": "Màu nước"
+    },
+    {
+      "id": "cat_3",
+      "type": "material",
+      "name": "Chì than"
+    },
+    {
+      "id": "cat_4",
+      "type": "subject",
+      "name": "Cây cỏ"
+    },
+    {
+      "id": "cat_5",
+      "type": "subject",
+      "name": "Phong cảnh"
+    },
+    {
+      "id": "cat_6",
+      "type": "subject",
+      "name": "Nghiên cứu"
+    },
+    {
+      "id": "cat_7",
+      "type": "material",
+      "name": "Hỗn hợp"
+    },
+    {
+      "id": "cat_8",
+      "type": "subject",
+      "name": "Nhiếp ảnh"
+    }
+  ]
+}
