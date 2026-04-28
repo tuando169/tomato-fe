@@ -57,9 +57,9 @@
         </div>
 
         <div class="flex flex-col gap-4 mt-auto">
-          <a href="https://instagram.com/elenavance" target="_blank" class="w-full py-4 bg-primary text-white text-center rounded shadow-lg hover:bg-primary-dim hover:scale-[1.01] transition-all duration-300 font-medium tracking-widest uppercase">
+          <BaseButton href="https://instagram.com/elenavance" target="_blank" size="full">
             Liên hệ Mua
-          </a>
+          </BaseButton>
         </div>
       </div>
     </div>

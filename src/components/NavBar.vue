@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <!-- Logo -->
       <router-link to="/" class="font-serif text-2xl tracking-widest text-primary-dim hover:opacity-80 transition-opacity">
-        ELENA VANCE
+        bochoinuoc
       </router-link>
 
       <!-- Navigation Links -->
@@ -14,9 +14,9 @@
         <router-link to="/about" class="hover:text-primary transition-colors duration-300" active-class="text-primary font-medium">
           Giới thiệu
         </router-link>
-        <router-link to="/commission" class="px-6 py-2.5 bg-primary text-white rounded hover:bg-primary-dim transition-colors duration-300">
+        <BaseButton to="/commission" size="sm">
           Đặt vẽ
-        </router-link>
+        </BaseButton>
       </nav>
 
       <!-- Mobile Menu Button -->

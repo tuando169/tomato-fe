@@ -30,9 +30,9 @@
         </div>
         <p class="text-lg text-gray-600 leading-relaxed">{{ store.artist.philosophy }}</p>
         <div>
-          <router-link to="/commission" class="inline-block px-8 py-3 bg-primary text-white rounded hover:bg-primary-dim transition-colors uppercase tracking-widest text-sm shadow-md shadow-primary/20">
+          <BaseButton to="/commission">
             Yêu cầu
-          </router-link>
+          </BaseButton>
         </div>
       </div>
     </section>

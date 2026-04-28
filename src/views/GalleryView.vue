@@ -37,13 +37,6 @@
           </div>
         </router-link>
       </div>
-
-      <!-- Load more -->
-      <div class="mt-24 flex justify-center">
-        <button class="px-8 py-3 border border-sage text-primary-dim rounded hover:bg-surface-container transition-colors uppercase tracking-widest text-sm font-medium">
-          Xem bộ sưu tập 2023
-        </button>
-      </div>
     </div>
   </div>
 </template>

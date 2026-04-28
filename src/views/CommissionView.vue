@@ -18,10 +18,10 @@
         <div class="pt-8 mt-4 border-t border-surface-container">
           <p class="text-sm text-gray-500 mb-6">Để đảm bảo chất lượng, tôi chỉ nhận giới hạn số lượng đơn đặt vẽ mỗi năm. Hãy liên hệ trực tiếp qua tin nhắn để thảo luận về ý tưởng của bạn.</p>
           
-          <a href="https://instagram.com/elenavance" target="_blank" class="inline-flex items-center justify-center gap-3 w-full md:w-auto px-10 py-5 bg-primary text-white rounded shadow-xl shadow-primary/10 hover:bg-primary-dim hover:shadow-2xl transition-all duration-300 font-medium tracking-widest uppercase">
+          <BaseButton href="https://instagram.com/elenavance" target="_blank" size="lg" className="w-full md:w-auto">
             <span class="material-symbols-outlined">chat_bubble</span>
             Nhắn tin Đặt vẽ
-          </a>
+          </BaseButton>
         </div>
       </div>
 

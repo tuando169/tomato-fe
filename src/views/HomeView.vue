@@ -10,9 +10,9 @@
           {{ store.artist.philosophy }}
         </p>
         <div class="flex items-center gap-6 mt-4">
-          <router-link to="/gallery" class="px-8 py-3 bg-primary text-white rounded hover:bg-primary-dim transition-colors duration-300 tracking-widest text-sm uppercase">
+          <BaseButton to="/gallery">
             Xem Bộ Sưu Tập
-          </router-link>
+          </BaseButton>
           <router-link to="/about" class="text-primary hover:border-primary border-b border-transparent pb-1 transition-all uppercase tracking-widest text-sm">
             Giới thiệu hoạ sĩ
           </router-link>
@@ -31,7 +31,7 @@
     <!-- Featured Artworks -->
     <section class="py-24 bg-white relative">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-end mb-16">
+        <div class="flex justify-between items-end mb-6">
           <h2 class="text-3xl font-serif text-primary-dim">Tác phẩm Tiêu biểu</h2>
           <router-link to="/gallery" class="group flex items-center gap-2 text-primary hover:text-primary-dim transition-colors uppercase tracking-widest text-sm font-medium">
             Xem Kho Lưu Trữ
@@ -61,10 +61,10 @@
         <p class="text-gray-600 mb-10 max-w-xl mx-auto">Mỗi tác phẩm là một câu chuyện riêng. Hãy chia sẻ ý tưởng của bạn để chúng ta cùng hiện thực hóa nó.</p>
         
         <div class="flex justify-center">
-          <router-link to="/commission" class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary text-white rounded shadow-xl shadow-primary/10 hover:bg-primary-dim hover:shadow-2xl transition-all duration-300 font-medium tracking-widest uppercase">
+          <BaseButton to="/commission" size="lg">
             <span class="material-symbols-outlined">chat_bubble</span>
            Đặt vẽ
-          </router-link>
+          </BaseButton>
         </div>
       </div>
     </section>
