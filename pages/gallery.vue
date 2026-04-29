@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { useGalleryStore } from '../stores/gallery'
+import { useGalleryStore } from '~/stores/gallery'
 
 const store = useGalleryStore()
 </script>

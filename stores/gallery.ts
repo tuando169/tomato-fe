@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import data from '../data.json'
+import data from '~/assets/data.json'
 
 export const useGalleryStore = defineStore('gallery', {
   state: () => ({

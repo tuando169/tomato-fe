@@ -73,7 +73,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useGalleryStore } from '../stores/gallery'
+import { useGalleryStore } from '~/stores/gallery'
 
 const store = useGalleryStore()
 const featuredArtwork = computed(() => store.highlightedArtworks[0])

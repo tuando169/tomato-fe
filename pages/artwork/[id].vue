@@ -98,7 +98,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { useGalleryStore } from '../stores/gallery'
+import { useGalleryStore } from '~/stores/gallery'
 
 const route = useRoute()
 const store = useGalleryStore()

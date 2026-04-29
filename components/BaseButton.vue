@@ -4,6 +4,7 @@
     v-bind="dynamicProps"
     :class="[
       'inline-flex items-center justify-center rounded font-medium tracking-widest uppercase transition-all duration-300 gap-2',
+      'disabled:opacity-50 disabled:cursor-not-allowed',
       sizeClasses,
       variantClasses,
       className
@@ -24,6 +25,14 @@ const props = defineProps({
   href: {
     type: String,
     default: undefined
+  },
+  type: {
+    type: String,
+    default: 'button'
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   },
   variant: {
     type: String,
@@ -54,7 +63,7 @@ const componentTag = computed(() => {
 const dynamicProps = computed(() => {
   if (props.to) return { to: props.to }
   if (props.href) return { href: props.href, target: props.target }
-  return { type: 'button' }
+  return { type: props.type, disabled: props.disabled }
 })
 
 const sizeClasses = computed(() => {

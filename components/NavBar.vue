@@ -1,6 +1,6 @@
 <template>
   <header class="fixed top-0 left-0 w-full z-50 bg-white/40 backdrop-blur-md border-b border-surface-container">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
       <!-- Logo -->
       <router-link to="/" class="font-serif text-2xl tracking-widest text-primary-dim hover:opacity-80 transition-opacity">
         bochoinuoc

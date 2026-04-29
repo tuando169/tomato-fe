@@ -109,6 +109,24 @@ Nuxt auto-imports these directories when placed at the root level.
 
 We will integrate Supabase as our backend service for authentication, database, and storage.
 
+#### Database Schema (Tables to Create)
+Theo yêu cầu tối giản, chúng ta sẽ gộp các dữ liệu liên quan vào và chỉ tạo duy nhất 1 bảng trong Supabase:
+
+1. **`artworks`**
+   - `id` (uuid, default gen_random_uuid(), primary key)
+   - `code` (text, unique)
+   - `title` (text)
+   - `material` (text)
+   - `year` (integer)
+   - `price` (numeric)
+   - `collection_name` (text) - Tên bộ sưu tập (lưu chuỗi trực tiếp thay vì tạo bảng riêng)
+   - `categories` (text array hoặc jsonb) - Lưu trực tiếp danh sách danh mục (VD: `['Oil', 'Botanical']`)
+   - `dimensions` (text)
+   - `certification` (text)
+   - `description` (text)
+   - `images` (text array hoặc jsonb) - Mảng chứa URL các hình ảnh
+   - `highlight` (boolean, default false)
+
 #### [NEW] Dependencies
 - Install `@nuxtjs/supabase` module: `npm install @nuxtjs/supabase --save-dev`
 

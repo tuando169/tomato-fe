@@ -1,26 +1,24 @@
 {
   "name": "tomato-fe",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.48.0",
+    "nuxt": "^3.15.0",
     "pinia": "^3.0.4",
-    "vue": "^3.5.32",
-    "vue-router": "^5.0.6"
+    "vue": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.6",
-    "@vue/tsconfig": "^0.9.1",
-    "autoprefixer": "^10.5.0",
-    "postcss": "^8.5.12",
-    "tailwindcss": "^3.4.19",
-    "typescript": "^6.0.3",
-    "vite": "^8.0.10",
-    "vue-tsc": "^3.2.7"
+    "@nuxtjs/supabase": "^1.4.2",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@pinia/nuxt": "^0.10.0",
+    "typescript": "^6.0.3"
   }
 }
