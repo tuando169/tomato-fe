@@ -4,17 +4,17 @@
     <section class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-12 gap-12">
       <div class="md:w-1/2 flex flex-col items-start gap-8 z-10">
         <h1 class="text-5xl md:text-7xl font-serif leading-tight text-primary-dim">
-          Nghệ thuật<br>của sự<br>Tĩnh lặng
+          The Art<br>of<br>Stillness
         </h1>
         <p class="text-lg text-gray-600 max-w-md leading-relaxed">
           {{ store.artist.philosophy }}
         </p>
         <div class="flex items-center gap-6 mt-4">
           <BaseButton to="/gallery">
-            Xem Bộ Sưu Tập
+            View Collections
           </BaseButton>
           <router-link to="/about" class="text-primary hover:border-primary border-b border-transparent pb-1 transition-all uppercase tracking-widest text-sm">
-            Giới thiệu hoạ sĩ
+            About the Artist
           </router-link>
         </div>
       </div>
@@ -32,9 +32,9 @@
     <section class="py-24 bg-white relative">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-end mb-6">
-          <h2 class="text-3xl font-serif text-primary-dim">Tác phẩm Tiêu biểu</h2>
+          <h2 class="text-3xl font-serif text-primary-dim">Featured Artworks</h2>
           <router-link to="/gallery" class="group flex items-center gap-2 text-primary hover:text-primary-dim transition-colors uppercase tracking-widest text-sm font-medium">
-            Xem Kho Lưu Trữ
+            View Archive
             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </router-link>
         </div>
@@ -57,13 +57,13 @@
     <section class="py-24 bg-surface-container relative overflow-hidden">
       <div class="absolute top-0 left-0 w-full h-full bg-seafoam/40 z-0"></div>
       <div class="max-w-3xl mx-auto px-6 relative z-10 text-center">
-        <h2 class="text-4xl font-serif text-primary-dim mb-6">Đặt vẽ theo yêu cầu</h2>
-        <p class="text-gray-600 mb-10 max-w-xl mx-auto">Mỗi tác phẩm là một câu chuyện riêng. Hãy chia sẻ ý tưởng của bạn để chúng ta cùng hiện thực hóa nó.</p>
+        <h2 class="text-4xl font-serif text-primary-dim mb-6">Request a Commission</h2>
+        <p class="text-gray-600 mb-10 max-w-xl mx-auto">Each piece is a unique story. Share your vision and let's bring it to life.</p>
         
         <div class="flex justify-center">
           <BaseButton to="/commission" size="lg">
             <span class="material-symbols-outlined">chat_bubble</span>
-           Đặt vẽ
+           Commission
           </BaseButton>
         </div>
       </div>

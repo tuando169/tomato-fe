@@ -1,9 +1,9 @@
 <template>
   <div class="gallery py-12">
     <div class="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
-      <h1 class="text-4xl md:text-5xl font-serif text-primary-dim">Phòng trưng bày</h1>
+      <h1 class="text-4xl md:text-5xl font-serif text-primary-dim">Gallery</h1>
       <router-link to="/commission" class="hidden md:inline-block px-6 py-2 border border-primary text-primary rounded hover:bg-surface-container transition-colors uppercase tracking-widest text-sm">
-        Đặt vẽ
+        Commission
       </router-link>
     </div>
 

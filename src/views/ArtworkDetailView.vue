@@ -24,30 +24,30 @@
       <!-- Details -->
       <div class="lg:w-1/2 flex flex-col">
         <div class="">
-          <p class="text-sm font-medium tracking-widest text-gray-400 uppercase mb-2">{{ collection?.name || 'Tác phẩm' }}</p>
+          <p class="text-sm font-medium tracking-widest text-gray-400 uppercase mb-2">{{ collection?.name || 'Artwork' }}</p>
           <h1 class="text-4xl md:text-5xl font-serif text-primary-dim mb-4 leading-tight">{{ artwork.title }}</h1>
           <p class="text-2xl font-serif text-gray-800">${{ artwork.price.toLocaleString() }}</p>
         </div>
 
         <div class="flex flex-col gap-4 border-t border-b border-surface-container py-8 mb-8">
           <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Mã số</span>
+            <span class="text-xs uppercase tracking-widest text-gray-500">Code</span>
             <span class="text-gray-800">{{ artwork.code }}</span>
           </div>
           <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Chất liệu</span>
+            <span class="text-xs uppercase tracking-widest text-gray-500">Medium</span>
             <span class="text-gray-800">{{ artwork.material }}</span>
           </div>
           <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Kích thước</span>
+            <span class="text-xs uppercase tracking-widest text-gray-500">Dimensions</span>
             <span class="text-gray-800">{{ artwork.dimensions }}</span>
           </div>
           <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Năm sáng tác</span>
+            <span class="text-xs uppercase tracking-widest text-gray-500">Year</span>
             <span class="text-gray-800">{{ artwork.year }}</span>
           </div>
           <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Chứng nhận</span>
+            <span class="text-xs uppercase tracking-widest text-gray-500">Certification</span>
             <span class="text-gray-800">{{ artwork.certification }}</span>
           </div>
         </div>
@@ -58,7 +58,7 @@
 
         <div class="flex flex-col gap-4 mt-auto">
           <BaseButton href="https://instagram.com/elenavance" target="_blank" size="full">
-            Liên hệ Mua
+            Inquire to Purchase
           </BaseButton>
         </div>
       </div>
@@ -67,9 +67,9 @@
     <!-- Related Artworks -->
     <div class="max-w-7xl mx-auto px-6 pt-16 border-t border-surface-container">
       <div class="flex justify-between items-end mb-12">
-        <h2 class="text-3xl font-serif text-primary-dim">Tác phẩm liên quan</h2>
+        <h2 class="text-3xl font-serif text-primary-dim">Related Artworks</h2>
         <router-link to="/gallery" class="text-primary hover:text-primary-dim transition-colors uppercase tracking-widest text-sm font-medium">
-          Xem tất cả
+          View All
         </router-link>
       </div>
 
@@ -91,7 +91,7 @@
     </div>
   </div>
   <div v-else class="min-h-[50vh] flex items-center justify-center">
-    <p class="text-xl text-gray-500">Đang tải...</p>
+    <p class="text-xl text-gray-500">Loading...</p>
   </div>
 </template>
 
