@@ -30,10 +30,10 @@
           <div class="flex flex-col gap-1 px-1">
             <div class="flex justify-between items-start">
               <h3 class="font-serif text-xl text-primary-dim group-hover:text-primary transition-colors">{{ art.title }}</h3>
-              <span class="text-sm text-gray-400 font-serif">{{ art.year }}</span>
+               <p class="text-sm text-gray-400 mt-1">{{ art.dimensions }}</p>
             </div>
             <p class="text-sm text-gray-500">{{ art.material }}</p>
-            <p class="text-sm text-gray-400 mt-1">{{ art.dimensions }}</p>
+           
           </div>
         </router-link>
       </div>
