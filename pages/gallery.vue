@@ -28,12 +28,12 @@
           
           <!-- Text details -->
           <div class="flex flex-col gap-1 px-1">
-            <div class="flex justify-between items-start">
-              <h3 class="font-serif text-xl text-primary-dim group-hover:text-primary transition-colors">{{ art.title }}</h3>
-               <p class="text-sm text-gray-400 mt-1">{{ art.dimensions }}</p>
+            <h3 class="font-serif text-xl text-primary-dim group-hover:text-primary transition-colors">{{ art.title }}</h3>
+            <div class="flex flex-wrap gap-2 mt-1">
+              <span v-for="tag in art.tags.slice(0, 3)" :key="tag" class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container-high text-outline uppercase tracking-wider">
+                {{ tag }}
+              </span>
             </div>
-            <p class="text-sm text-gray-500">{{ art.material }}</p>
-           
           </div>
         </router-link>
       </div>

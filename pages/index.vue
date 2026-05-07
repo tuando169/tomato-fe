@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- Hero Section -->
-    <section class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-12 gap-12">
+    <section class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto py-12 gap-12">
       <div class="md:w-1/2 flex flex-col items-start gap-8 z-10">
         <h1 class="text-5xl md:text-7xl font-serif leading-tight text-primary-dim">
           The Art<br>of<br>Stillness
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="md:w-1/2 w-full relative">
-        <div class="aspect-[4/5] bg-surface-container rounded-lg overflow-hidden shadow-2xl relative z-10">
+        <div class=" bg-surface-container rounded-lg overflow-hidden shadow-2xl relative z-10">
           <img v-if="featuredArtwork" :src="featuredArtwork.images[0]" :alt="featuredArtwork.title" class="w-full h-full object-cover" loading="lazy" />
         </div>
         <!-- Decorative elements -->
@@ -30,11 +30,11 @@
 
     <!-- Featured Artworks -->
     <section class="py-24 bg-white relative">
-      <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-end mb-6">
           <h2 class="text-3xl font-serif text-primary-dim">Featured Artworks</h2>
           <router-link to="/gallery" class="group flex items-center gap-2 text-primary hover:text-primary-dim transition-colors uppercase tracking-widest text-sm font-medium">
-            View Archive
+            View Gallery
             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
           </router-link>
         </div>
@@ -46,7 +46,11 @@
             </div>
             <div class="flex flex-col gap-1">
               <h3 class="font-serif text-xl group-hover:text-primary transition-colors">{{ art.title }}</h3>
-              <p class="text-sm text-gray-500">{{ art.material }} • {{ art.year }}</p>
+              <div class="flex flex-wrap gap-1">
+                <span v-for="tag in art.tags.slice(0, 2)" :key="tag" class="text-[10px] text-gray-500 uppercase tracking-widest">
+                  {{ tag }}{{ art.tags.indexOf(tag) < 1 && art.tags.length > 1 ? ' •' : '' }}
+                </span>
+              </div>
             </div>
           </router-link>
         </div>

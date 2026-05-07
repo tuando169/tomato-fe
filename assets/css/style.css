@@ -15,6 +15,11 @@
   }
 }
 
+html {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
 body {
   @apply bg-surface text-gray-800 font-sans antialiased;
 }

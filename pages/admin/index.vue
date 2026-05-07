@@ -17,65 +17,36 @@
       </header>
 
       <!-- Stats Grid (Subtle Tonal Depth) -->
-      <section class="grid grid-cols-4 gap-6 mb-6">
-        <div class="bg-surface-container-low p-8 rounded-xl flex flex-col gap-2">
+      <section class="grid grid-cols-3 gap-6 mb-6">
+        <div class="bg-surface-container-low px-8 py-4 rounded-xl flex flex-col gap-2">
           <span class="text-[10px] font-bold tracking-[0.15rem] uppercase text-outline">TOTAL ARTWORKS</span>
           <span class="font-serif text-3xl">{{ galleryStore.artworks.length }}</span>
         </div>
-        <div class="bg-surface-container p-8 rounded-xl flex flex-col gap-2">
+        <div class="bg-surface-container px-8 py-4 rounded-xl flex flex-col gap-2">
           <span class="text-[10px] font-bold tracking-[0.15rem] uppercase text-outline">HIGHLIGHTED</span>
           <span class="font-serif text-3xl text-primary">{{ galleryStore.highlightedArtworks.length }}</span>
         </div>
-        <div class="bg-surface-container p-8 rounded-xl flex flex-col gap-2">
-          <span class="text-[10px] font-bold tracking-[0.15rem] uppercase text-outline">CATEGORIES</span>
-          <span class="font-serif text-3xl">{{ galleryStore.categories.length }}</span>
-        </div>
-        <div class="bg-surface-container-high p-8 rounded-xl flex flex-col gap-2 border-l-4 border-primary/20">
-          <span class="text-[10px] font-bold tracking-[0.15rem] uppercase text-primary">TOTAL VALUE</span>
-          <span class="font-serif text-3xl">${{ galleryStore.artworks.reduce((sum, a) => sum + a.price, 0).toLocaleString() }}</span>
+        <div class="bg-surface-container-high px-8 py-4 rounded-xl flex flex-col gap-2 border-primary/20">
+          <span class="text-[10px] font-bold tracking-[0.15rem] uppercase text-primary">UNIQUE TAGS</span>
+          <span class="font-serif text-3xl">{{ galleryStore.allTags.length }}</span>
         </div>
       </section>
 
-      <!-- Inventory List (The Bento/Editorial Table) -->
-      <section class="space-y-4">
-        <!-- Table Header -->
-        <div class="grid grid-cols-12 px-8 py-4 text-[10px] font-bold tracking-[0.2rem] uppercase text-outline">
-          <div class="col-span-6">Artwork Details</div>
-          <div class="col-span-2 text-center">Highlight</div>
-          <div class="col-span-2 text-right">Price</div>
-          <div class="col-span-2 text-right">Actions</div>
-        </div>
-
-        <!-- Dynamic Artwork List -->
-        <div v-for="artwork in sortedArtworks" :key="artwork.id" class="group grid grid-cols-12 items-center px-8 py-6 bg-surface-container-lowest rounded-xl hover:shadow-2xl hover:shadow-on-surface/5 transition-all duration-500">
-          <div class="col-span-6 flex items-center gap-6">
-            <div class="w-20 h-24 rounded-lg overflow-hidden bg-surface-container-high shrink-0">
-              <img class="w-full h-full object-cover" :alt="artwork.title" :src="artwork.images[0]"/>
-            </div>
-            <div class="space-y-1">
-              <h4 class="font-serif text-xl text-on-surface">{{ artwork.title }}</h4>
-              <div class="flex gap-2 items-center">
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-bold tracking-widest uppercase">{{ artwork.material }}</span>
-                <span class="text-[10px] text-outline italic">Created {{ artwork.year }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-span-2 flex justify-center">
-            <BaseSwitch v-model="artwork.highlight" />
-          </div>
-          <div class="col-span-2 text-right">
-            <span class="font-serif text-lg">${{ artwork.price.toLocaleString() }}</span>
-          </div>
-          <div class="col-span-2 flex justify-end gap-4">
-            <button @click="openEditModal(artwork)" class="material-symbols-outlined text-outline hover:text-primary transition-colors">edit</button>
-            <button @click="openDeleteModal(artwork)" class="material-symbols-outlined text-outline hover:text-error transition-colors">delete</button>
-          </div>
-        </div>
-
+      <!-- Inventory Grid (Card Form) -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <AdminInventoryCard
+          v-for="artwork in sortedArtworks"
+          :key="artwork.id"
+          :artwork="artwork"
+          @edit="openEditModal(artwork)"
+          @delete="openDeleteModal(artwork)"
+          @download="handleDownload(artwork, $event)"
+          @toggle-highlight="galleryStore.toggleHighlight(artwork.id, $event)"
+        />
       </section>
 
       <!-- Modals -->
-      <AdminEditModal 
+      <AdminEditModal
         :is-open="isEditModalOpen" 
         :artwork="selectedArtwork" 
         @close="isEditModalOpen = false"
@@ -95,6 +66,10 @@
 <script setup lang="ts">
 import { useGalleryStore } from '~/stores/gallery'
 import { computed, ref } from 'vue'
+import AdminInventoryCard from './components/AdminInventoryCard.vue'
+import type { Artwork } from '~/types'
+import AdminDeleteModal from './popups/AdminDeleteModal.vue'
+import AdminEditModal from './popups/AdminEditModal.vue'
 
 definePageMeta({
   middleware: 'auth'
@@ -125,6 +100,30 @@ const handleEditSave = (data: any) => {
   }
 }
 
+const handleDownload = async (artwork: any, imageUrl: string) => {
+  if (!imageUrl) return
+
+  try {
+    const response = await fetch(imageUrl)
+    const blob = await response.blob()
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    
+    // Format filename: artwork-title-image.jpg
+    const filename = `${artwork.title.toLowerCase().replace(/\s+/g, '-')}-image.jpg`
+    link.setAttribute('download', filename)
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    window.URL.revokeObjectURL(url)
+  } catch (error) {
+    console.error('Failed to download image:', error)
+    // Fallback for CORS issues: open in new tab
+    window.open(imageUrl, '_blank')
+  }
+}
+
 const handleDeleteConfirm = () => {
   if (selectedArtwork.value) {
     galleryStore.deleteArtwork(selectedArtwork.value.id)
@@ -144,9 +143,10 @@ const sortedArtworks = computed(() => {
   if (!searchQuery.value) return galleryStore.artworks
   
   const query = removeDiacritics(searchQuery.value.toLowerCase())
-  return galleryStore.artworks.filter(artwork => 
+  return galleryStore.artworks.filter((artwork:Artwork) => 
     removeDiacritics(artwork.title.toLowerCase()).includes(query) || 
-    removeDiacritics(artwork.material.toLowerCase()).includes(query)
+    removeDiacritics(artwork.description.toLowerCase()).includes(query) ||
+    artwork.tags.some(tag => removeDiacritics(tag.toLowerCase()).includes(query))
   )
 })
 </script>

@@ -3,8 +3,8 @@
     :is="componentTag"
     v-bind="dynamicProps"
     :class="[
-      'inline-flex items-center justify-center rounded font-medium tracking-widest uppercase transition-all duration-300 gap-2',
-      'disabled:opacity-50 disabled:cursor-not-allowed',
+      'inline-flex items-center justify-center rounded-sm font-medium tracking-widest uppercase transition-all duration-300 gap-2',
+      'disabled:opacity-50 disabled:cursor-not-allowed border-2',
       sizeClasses,
       variantClasses,
       className
@@ -86,7 +86,7 @@ const variantClasses = computed(() => {
       return 'border border-primary text-primary hover:bg-primary/5 shadow-md shadow-primary/20'
     case 'primary':
     default:
-      return 'bg-primary text-white hover:bg-primary-dim  hover:shadow-2xl'
+      return 'bg-primary text-white hover:text-primary hover:bg-surface  border-primary'
   }
 })
 </script>

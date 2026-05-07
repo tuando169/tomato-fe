@@ -41,11 +41,14 @@
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+  transform: scale(0.95);
 }
 </style>
 
 <script setup lang="ts">
-defineProps<{
+import { watch, onBeforeUnmount } from 'vue'
+
+const props = defineProps<{
   isOpen: boolean
   artwork: any
 }>()
@@ -54,4 +57,16 @@ defineEmits<{
   (e: 'cancel'): void
   (e: 'confirm'): void
 }>()
+
+watch(() => props.isOpen, (val) => {
+  if (import.meta.client) {
+    document.body.style.overflow = val ? 'hidden' : ''
+  }
+}, { immediate: true })
+
+onBeforeUnmount(() => {
+  if (import.meta.client) {
+    document.body.style.overflow = ''
+  }
+})
 </script>

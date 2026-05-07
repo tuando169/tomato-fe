@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col bg-surface text-gray-800">
+    <BaseToast />
     <NavBar v-if="showLayout" />
     <main :class="['flex-grow', showLayout ? 'pt-20' : '']">
       <NuxtPage />
@@ -9,8 +10,15 @@
 </template>
 
 <script setup>
+import { useGalleryStore } from '~/stores/gallery'
+
 const route = useRoute()
+const galleryStore = useGalleryStore()
 const showLayout = computed(() => route.meta.layout !== false)
+
+onMounted(() => {
+  galleryStore.fetchArtworks()
+})
 </script>
 
 <style>

@@ -22,33 +22,13 @@
       </div>
 
       <!-- Details -->
-      <div class="lg:w-1/2 flex flex-col">
-        <div class="">
-          <p class="text-sm font-medium tracking-widest text-gray-400 uppercase mb-2">{{ collection?.name || 'Artwork' }}</p>
+        <div class="lg:w-1/2 flex flex-col">
+        <div class="mb-6">
           <h1 class="text-4xl md:text-5xl font-serif text-primary-dim mb-4 leading-tight">{{ artwork.title }}</h1>
-          <p class="text-2xl font-serif text-gray-800">${{ artwork.price.toLocaleString() }}</p>
-        </div>
-
-        <div class="flex flex-col gap-4 border-t border-b border-surface-container py-8 mb-8">
-          <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Code</span>
-            <span class="text-gray-800">{{ artwork.code }}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Medium</span>
-            <span class="text-gray-800">{{ artwork.material }}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Dimensions</span>
-            <span class="text-gray-800">{{ artwork.dimensions }}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Year</span>
-            <span class="text-gray-800">{{ artwork.year }}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs uppercase tracking-widest text-gray-500">Certification</span>
-            <span class="text-gray-800">{{ artwork.certification }}</span>
+          <div class="flex flex-wrap gap-2">
+            <span v-for="tag in artwork.tags" :key="tag" class="text-xs px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-bold uppercase tracking-widest">
+              {{ tag }}
+            </span>
           </div>
         </div>
 
@@ -105,14 +85,12 @@ const store = useGalleryStore()
 
 const artwork = ref<any>(null)
 const mainImage = ref('')
-const collection = ref<any>(null)
 
 const loadArtwork = () => {
   const id = route.params.id as string
   artwork.value = store.getArtworkById(id)
   if (artwork.value) {
     mainImage.value = artwork.value.images[0]
-    collection.value = store.getCollectionById(artwork.value.collectionId)
   }
 }
 

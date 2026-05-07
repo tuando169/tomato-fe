@@ -114,18 +114,11 @@ Theo yêu cầu tối giản, chúng ta sẽ gộp các dữ liệu liên quan v
 
 1. **`artworks`**
    - `id` (uuid, default gen_random_uuid(), primary key)
-   - `code` (text, unique)
    - `title` (text)
-   - `material` (text)
-   - `year` (integer)
-   - `price` (numeric)
-   - `collection_name` (text) - Tên bộ sưu tập (lưu chuỗi trực tiếp thay vì tạo bảng riêng)
-   - `categories` (text array hoặc jsonb) - Lưu trực tiếp danh sách danh mục (VD: `['Oil', 'Botanical']`)
-   - `dimensions` (text)
-   - `certification` (text)
    - `description` (text)
    - `images` (text array hoặc jsonb) - Mảng chứa URL các hình ảnh
-   - `highlight` (boolean, default false)
+   - `tags` (text array hoặc jsonb) - Mảng chứa các thẻ phân loại (VD: ['Oil', 'Botanical'])
+   - `highlight` (boolean, default false) - Đánh dấu tác phẩm nổi bật để hiển thị ở trang chủ
 
 #### [NEW] Dependencies
 - Install `@nuxtjs/supabase` module: `npm install @nuxtjs/supabase --save-dev`
