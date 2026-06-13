@@ -83,24 +83,18 @@ import { useGalleryStore } from '~/stores/gallery'
 const route = useRoute()
 const store = useGalleryStore()
 
-const artwork = ref<any>(null)
+const artwork = computed(() => {
+  const id = route.params.id as string
+  return store.getArtworkById(id)
+})
+
 const mainImage = ref('')
 
-const loadArtwork = () => {
-  const id = route.params.id as string
-  artwork.value = store.getArtworkById(id)
-  if (artwork.value) {
-    mainImage.value = artwork.value.images[0]
+watch(artwork, (newArt) => {
+  if (newArt) {
+    mainImage.value = newArt.images[0]
   }
-}
-
-onMounted(() => {
-  loadArtwork()
-})
-
-watch(() => route.params.id, () => {
-  loadArtwork()
-})
+}, { immediate: true })
 
 const relatedArtworks = computed(() => {
   if (!artwork.value) return []

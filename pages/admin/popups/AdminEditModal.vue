@@ -3,7 +3,7 @@
     <div v-if="isOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm ">
       <div class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden border border-surface-container flex flex-col max-h-[90vh]">
         <header class="px-8 py-6 border-b border-surface-container flex justify-between items-center shrink-0">
-          <h3 class="font-serif text-2xl text-on-surface">Edit Artwork</h3>
+          <h3 class="font-serif text-2xl text-on-surface">{{ artwork ? 'Edit Artwork' : 'Create Artwork' }}</h3>
           <button @click="$emit('close')" class="material-symbols-outlined text-outline hover:text-on-surface transition-colors">close</button>
         </header>
         
@@ -45,7 +45,7 @@
               <label class="text-xs font-bold uppercase tracking-widest text-outline block">Image Gallery</label>
               <div class="grid grid-cols-2 gap-3">
                 <div v-for="(img, idx) in form.images" :key="idx" class="relative aspect-square rounded-xl overflow-hidden group border border-surface-container">
-                  <img :src="img" class="w-full h-full object-cover" />
+                  <img :src="img.url" class="w-full h-full object-cover" />
                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                     <button type="button" @click="removeImage(idx)" class="w-8 h-8 rounded-full bg-error text-white flex items-center justify-center hover:scale-110 transition-transform">
                       <span class="material-symbols-outlined text-sm">delete</span>
@@ -56,13 +56,13 @@
                 <button 
                   type="button" 
                   @click="triggerUpload"
-                  :disabled="isUploading"
+                  :disabled="isSaving"
                   class="aspect-square rounded-xl border-2 border-dashed border-outline/30 flex flex-col items-center justify-center text-outline hover:border-primary hover:text-primary hover:bg-primary/5 transition-all group disabled:opacity-50"
                 >
                   <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">
-                    {{ isUploading ? 'sync' : 'add_photo_alternate' }}
+                    {{ isSaving ? 'sync' : 'add_photo_alternate' }}
                   </span>
-                  <span class="text-[10px] font-bold uppercase mt-2 tracking-widest">{{ isUploading ? 'Uploading...' : 'Add Image' }}</span>
+                  <span class="text-[10px] font-bold uppercase mt-2 tracking-widest">{{ isSaving ? 'Uploading...' : 'Add Image' }}</span>
                 </button>
               </div>
               <input type="file" ref="fileInput" hidden multiple accept="image/*" @change="onFileChange" />
@@ -77,12 +77,13 @@
             <button 
               type="button"
               @click="$emit('close')"
+              :disabled="isSaving"
               class="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-widest text-outline hover:text-on-surface transition-all"
             >
               Cancel
             </button>
-            <BaseButton type="submit" :disabled="isUploading">
-              Save Changes
+            <BaseButton type="submit" :disabled="isSaving">
+              {{ isSaving ? 'Saving...' : (artwork ? 'Save Changes' : 'Create Artwork') }}
             </BaseButton>
           </div>
         </form>
@@ -111,6 +112,11 @@
 <script setup lang="ts">
 import { ref, watch, onBeforeUnmount } from 'vue'
 
+interface ImageItem {
+  url: string
+  file?: File
+}
+
 const props = defineProps<{
   isOpen: boolean
   artwork: any
@@ -123,14 +129,32 @@ const emit = defineEmits<{
 
 const supabase = useSupabaseClient()
 const fileInput = ref<HTMLInputElement | null>(null)
-const isUploading = ref(false)
+const isSaving = ref(false)
+const pendingDeletions = ref<string[]>([])
+
+const getStoragePathFromUrl = (url: string) => {
+  const marker = '/storage/v1/object/public/artworks/'
+  const index = url.indexOf(marker)
+  if (index !== -1) {
+    return decodeURIComponent(url.substring(index + marker.length))
+  }
+  return null
+}
 
 const form = ref({
   title: '',
   description: '',
   tagsString: '',
-  images: [] as string[]
+  images: [] as ImageItem[]
 })
+
+const cleanupObjectUrls = () => {
+  form.value.images.forEach(img => {
+    if (img.url.startsWith('blob:')) {
+      URL.revokeObjectURL(img.url)
+    }
+  })
+}
 
 watch(() => props.isOpen, (newVal) => {
   if (import.meta.client) {
@@ -138,12 +162,16 @@ watch(() => props.isOpen, (newVal) => {
   }
   
   if (newVal) {
+    pendingDeletions.value = []
     form.value = {
       title: props.artwork?.title || '',
       description: props.artwork?.description || '',
       tagsString: props.artwork?.tags ? props.artwork.tags.join(', ') : '',
-      images: props.artwork?.images ? [...props.artwork.images] : []
+      images: props.artwork?.images ? props.artwork.images.map((url: string) => ({ url })) : []
     }
+  } else {
+    cleanupObjectUrls()
+    pendingDeletions.value = []
   }
 }, { immediate: true })
 
@@ -151,63 +179,106 @@ onBeforeUnmount(() => {
   if (import.meta.client) {
     document.body.style.overflow = ''
   }
+  cleanupObjectUrls()
 })
 
 const triggerUpload = () => {
   fileInput.value?.click()
 }
 
-const onFileChange = async (event: Event) => {
+const onFileChange = (event: Event) => {
   const files = (event.target as HTMLInputElement).files
   if (!files || files.length === 0) return
 
-  isUploading.value = true
-  
-  try {
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i]
-      const fileExt = file.name.split('.').pop()
-      const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`
-      const filePath = `artworks/${fileName}`
-
-      const { data, error } = await supabase.storage
-        .from('artworks')
-        .upload(filePath, file)
-
-      if (error) throw error
-
-      if (data) {
-        const { data: { publicUrl } } = supabase.storage
-          .from('artworks')
-          .getPublicUrl(filePath)
-        
-        form.value.images.push(publicUrl)
-      }
-    }
-  } catch (error) {
-    console.error('Error uploading image:', error)
-    alert('Failed to upload image. Please ensure you have an "artworks" bucket set up in Supabase Storage with public access.')
-  } finally {
-    isUploading.value = false
-    if (fileInput.value) fileInput.value.value = ''
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
+    const localUrl = URL.createObjectURL(file)
+    form.value.images.push({
+      url: localUrl,
+      file: file
+    })
   }
+
+  if (fileInput.value) fileInput.value.value = ''
 }
 
 const removeImage = (index: number) => {
+  const item = form.value.images[index]
+  if (item.file && item.url.startsWith('blob:')) {
+    URL.revokeObjectURL(item.url)
+  } else {
+    const path = getStoragePathFromUrl(item.url)
+    if (path) {
+      pendingDeletions.value.push(path)
+    }
+  }
   form.value.images.splice(index, 1)
 }
 
-const handleSave = () => {
-  const tags = form.value.tagsString
-    .split(',')
-    .map(t => t.trim())
-    .filter(t => t.length > 0)
+const handleSave = async () => {
+  isSaving.value = true
+  try {
+    const finalImages: string[] = []
+
+    for (const item of form.value.images) {
+      if (item.file) {
+        const file = item.file
+        const fileExt = file.name.split('.').pop()
+        const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`
+        const filePath = `artworks/${fileName}`
+
+        const { data, error } = await supabase.storage
+          .from('artworks')
+          .upload(filePath, file)
+
+        if (error) throw error
+
+        if (data) {
+          const { data: { publicUrl } } = supabase.storage
+            .from('artworks')
+            .getPublicUrl(filePath)
+          
+          finalImages.push(publicUrl)
+        }
+      } else {
+        finalImages.push(item.url)
+      }
+    }
+
+    const tags = form.value.tagsString
+      .split(',')
+      .map(t => t.trim())
+      .filter(t => t.length > 0)
+      
+    emit('save', {  
+      title: form.value.title,
+      description: form.value.description,
+      tags: tags,
+      images: finalImages
+    })
+
+    if (pendingDeletions.value.length > 0) {
+      const { error: deleteError } = await supabase.storage
+        .from('artworks')
+        .remove(pendingDeletions.value)
+      
+      if (deleteError) {
+        console.error('Failed to delete some images from storage:', deleteError)
+      } else {
+        pendingDeletions.value = []
+      }
+    }
     
-  emit('save', {  
-    title: form.value.title,
-    description: form.value.description,
-    tags: tags,
-    images: form.value.images
-  })
+    cleanupObjectUrls()
+  } catch (error: any) {
+    console.error('Error saving artwork:', error)
+    if (error.message?.includes('violates row-level security policy') || error.status === 42522) {
+      alert('Upload failed: Row-Level Security (RLS) policy violation.\n\nPlease configure an INSERT policy on your "artworks" storage bucket in Supabase to allow uploads.')
+    } else {
+      alert(`Failed to save changes: ${error.message || error}`)
+    }
+  } finally {
+    isSaving.value = false
+  }
 }
 </script>

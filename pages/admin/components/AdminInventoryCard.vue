@@ -1,7 +1,7 @@
 <template>
   <div class="group bg-surface-container-lowest rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-on-surface/5 transition-all duration-500 flex flex-col border border-surface-container">
     <!-- Image Container -->
-    <div class="aspect-1 overflow-hidden bg-surface-container-high relative">
+    <div class="aspect-square overflow-hidden bg-surface-container-high relative">
       <img 
         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
         :alt="artwork.title" 

@@ -17,9 +17,9 @@ export const useGalleryStore = defineStore('gallery', () => {
     return artworks.value.filter(art => art.highlight)
   })
 
-  const getArtworkById = computed(() => {
-    return (id: string) => artworks.value.find(art => art.id === id)
-  })
+  function getArtworkById(id: string) {
+    return artworks.value.find(art => art.id === id)
+  }
 
   const allTags = computed(() => {
     const tags = new Set<string>()
@@ -51,8 +51,19 @@ export const useGalleryStore = defineStore('gallery', () => {
     }
   }
 
+  const getStoragePathFromUrl = (url: string) => {
+    const marker = '/storage/v1/object/public/artworks/'
+    const index = url.indexOf(marker)
+    if (index !== -1) {
+      return decodeURIComponent(url.substring(index + marker.length))
+    }
+    return null
+  }
+
   async function deleteArtwork(id: string) {
     try {
+      const artwork = artworks.value.find(art => art.id === id)
+      
       const { error } = await supabase
         .from('artworks')
         .delete()
@@ -61,6 +72,16 @@ export const useGalleryStore = defineStore('gallery', () => {
       if (error) throw error
       artworks.value = artworks.value.filter(art => art.id !== id)
       toast.show('Artwork deleted successfully')
+
+      if (artwork && artwork.images && artwork.images.length > 0) {
+        const paths = artwork.images
+          .map(url => getStoragePathFromUrl(url))
+          .filter(path => path !== null) as string[]
+        
+        if (paths.length > 0) {
+          await supabase.storage.from('artworks').remove(paths)
+        }
+      }
     } catch (error) {
       console.error('Error deleting artwork:', error)
       toast.show('Failed to delete artwork', 'error')
@@ -87,6 +108,25 @@ export const useGalleryStore = defineStore('gallery', () => {
     }
   }
 
+  async function createArtwork(artwork: Omit<Artwork, 'id' | 'created_at'>) {
+    try {
+      const { data: newArtwork, error } = await supabase
+        .from('artworks')
+        .insert([{ ...artwork, highlight: false }])
+        .select()
+        .single()
+      
+      if (error) throw error
+      if (newArtwork) {
+        artworks.value.unshift(newArtwork)
+        toast.show('Artwork created successfully')
+      }
+    } catch (error) {
+      console.error('Error creating artwork:', error)
+      toast.show('Failed to create artwork', 'error')
+    }
+  }
+
   async function toggleHighlight(id: string, highlight: boolean) {
     return updateArtwork(id, { highlight })
   }
@@ -101,6 +141,7 @@ export const useGalleryStore = defineStore('gallery', () => {
     fetchArtworks,
     deleteArtwork,
     updateArtwork,
+    createArtwork,
     toggleHighlight
   }
 })
