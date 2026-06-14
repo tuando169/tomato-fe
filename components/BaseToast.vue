@@ -4,7 +4,7 @@
       <div 
         v-for="toast in toastStore.toasts" 
         :key="toast.id"
-        class="pointer-events-auto min-w-[320px] bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-surface-container p-5 flex items-center gap-4 transition-all"
+        class="pointer-events-auto min-w-[320px] bg-white/80 backdrop-blur-xl round shadow-2xl border border-surface-container p-5 flex items-center gap-4 transition-all"
         :class="[
           toast.type === 'success' ? 'border-l-4 border-l-primary' : '',
           toast.type === 'error' ? 'border-l-4 border-l-error' : '',

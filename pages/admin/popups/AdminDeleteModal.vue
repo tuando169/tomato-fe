@@ -1,7 +1,7 @@
 <template>
   <Transition name="modal">
     <div v-if="isOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
-      <div class="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden border border-surface-container p-8 text-center space-y-6">
+      <div class="bg-white round w-full max-w-md shadow-2xl overflow-hidden border border-surface-container p-8 text-center space-y-6">
         <div class="w-16 h-16 bg-error/10 text-error rounded-full flex items-center justify-center mx-auto">
           <span class="material-symbols-outlined text-4xl">delete_forever</span>
         </div>
@@ -16,13 +16,13 @@
         <div class="flex flex-col gap-3 pt-4">
           <button 
             @click="$emit('confirm')"
-            class="w-full bg-error text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-error-dim transition-all shadow-lg shadow-error/20"
+            class="w-full bg-error text-white py-4 round font-bold uppercase tracking-widest text-sm hover:bg-error-dim transition-all shadow-lg shadow-error/20"
           >
             Yes, Delete Permanently
           </button>
           <button 
             @click="$emit('cancel')"
-            class="w-full py-4 rounded-xl font-bold uppercase tracking-widest text-sm text-outline hover:text-on-surface transition-all"
+            class="w-full py-4 round font-bold uppercase tracking-widest text-sm text-outline hover:text-on-surface transition-all"
           >
             Cancel
           </button>

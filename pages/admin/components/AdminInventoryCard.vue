@@ -1,5 +1,5 @@
 <template>
-  <div class="group bg-surface-container-lowest rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-on-surface/5 transition-all duration-500 flex flex-col border border-surface-container">
+  <div class="group bg-surface-container-lowest round overflow-hidden hover:shadow-2xl hover:shadow-on-surface/5 transition-all duration-500 flex flex-col border border-surface-container">
     <!-- Image Container -->
     <div class="aspect-square overflow-hidden bg-surface-container-high relative">
       <img 
@@ -32,7 +32,7 @@
         v-for="(img, idx) in artwork.images" 
         :key="idx"
         @mouseenter="localHoveredImage = img"
-        class="w-10 h-12 flex-shrink-0 rounded-sm overflow-hidden border-2 transition-all cursor-pointer"
+        class="w-10 h-12 flex-shrink-0 round overflow-hidden border-2 transition-all cursor-pointer"
         :class="[
           (localHoveredImage === img || (!localHoveredImage && idx === 0))
           ? 'border-primary' 
@@ -52,7 +52,7 @@
 
       <!-- Tags -->
       <div class="flex flex-wrap gap-1.5 mt-auto">
-        <span v-for="tag in artwork.tags" :key="tag" class="text-[10px] px-2 py-0.5 rounded-sm bg-tertiary-container text-on-tertiary-container font-bold tracking-wider uppercase">
+        <span v-for="tag in artwork.tags" :key="tag" class="text-[10px] px-2 py-0.5 round bg-tertiary-container text-on-tertiary-container font-bold tracking-wider uppercase">
           {{ tag }}
         </span>
       </div>

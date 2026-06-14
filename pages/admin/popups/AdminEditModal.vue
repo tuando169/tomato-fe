@@ -1,7 +1,7 @@
 <template>
   <Transition name="modal">
     <div v-if="isOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm ">
-      <div class="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden border border-surface-container flex flex-col max-h-[90vh]">
+      <div class="bg-white round w-full max-w-2xl shadow-2xl overflow-hidden border border-surface-container flex flex-col max-h-[90vh]">
         <header class="px-8 py-6 border-b border-surface-container flex justify-between items-center shrink-0">
           <h3 class="font-serif text-2xl text-on-surface">{{ artwork ? 'Edit Artwork' : 'Create Artwork' }}</h3>
           <button @click="$emit('close')" class="material-symbols-outlined text-outline hover:text-on-surface transition-colors">close</button>
@@ -16,7 +16,7 @@
                   v-model="form.title" 
                   type="text" 
                   required
-                  class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
+                  class="w-full bg-surface-container-low border-none round px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
                 />
               </div>
 
@@ -26,7 +26,7 @@
                   v-model="form.description" 
                   rows="6"
                   required
-                  class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none resize-none"
+                  class="w-full bg-surface-container-low border-none round px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none resize-none"
                 ></textarea>
               </div>
 
@@ -36,7 +36,7 @@
                   v-model="form.tagsString" 
                   type="text" 
                   placeholder="Oil, Botanical, 2024..."
-                  class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
+                  class="w-full bg-surface-container-low border-none round px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
                 />
               </div>
             </div>
@@ -44,7 +44,7 @@
             <div class="space-y-4">
               <label class="text-xs font-bold uppercase tracking-widest text-outline block">Image Gallery</label>
               <div class="grid grid-cols-2 gap-3">
-                <div v-for="(img, idx) in form.images" :key="idx" class="relative aspect-square rounded-xl overflow-hidden group border border-surface-container">
+                <div v-for="(img, idx) in form.images" :key="idx" class="relative aspect-square round overflow-hidden group border border-surface-container">
                   <img :src="img.url" class="w-full h-full object-cover" />
                   <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                     <button type="button" @click="removeImage(idx)" class="w-8 h-8 rounded-full bg-error text-white flex items-center justify-center hover:scale-110 transition-transform">
@@ -57,7 +57,7 @@
                   type="button" 
                   @click="triggerUpload"
                   :disabled="isSaving"
-                  class="aspect-square rounded-xl border-2 border-dashed border-outline/30 flex flex-col items-center justify-center text-outline hover:border-primary hover:text-primary hover:bg-primary/5 transition-all group disabled:opacity-50"
+                  class="aspect-square round border-2 border-dashed border-outline/30 flex flex-col items-center justify-center text-outline hover:border-primary hover:text-primary hover:bg-primary/5 transition-all group disabled:opacity-50"
                 >
                   <span class="material-symbols-outlined text-3xl group-hover:scale-110 transition-transform">
                     {{ isSaving ? 'sync' : 'add_photo_alternate' }}
@@ -78,7 +78,7 @@
               type="button"
               @click="$emit('close')"
               :disabled="isSaving"
-              class="px-6 py-3 rounded-xl text-sm font-bold uppercase tracking-widest text-outline hover:text-on-surface transition-all"
+              class="px-6 py-3 round text-sm font-bold uppercase tracking-widest text-outline hover:text-on-surface transition-all"
             >
               Cancel
             </button>

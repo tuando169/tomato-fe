@@ -3,7 +3,7 @@
     :is="componentTag"
     v-bind="dynamicProps"
     :class="[
-      'inline-flex items-center justify-center rounded-sm font-medium tracking-widest uppercase transition-all duration-300 gap-2',
+      'inline-flex items-center justify-center round font-medium tracking-widest uppercase transition-all duration-300 gap-2',
       'disabled:opacity-50 disabled:cursor-not-allowed border-2',
       sizeClasses,
       variantClasses,

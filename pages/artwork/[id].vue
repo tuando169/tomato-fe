@@ -1,9 +1,9 @@
 <template>
   <div class="artwork-detail py-12" v-if="artwork">
-    <div class="max-w-7xl mx-auto px-6 mb-24 flex flex-col lg:flex-row gap-16">
+    <div class="container mx-auto px-6 mb-24 flex flex-col lg:flex-row gap-16">
       <!-- Image Gallery -->
       <div class="lg:w-1/2">
-        <div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl mb-6">
+        <div class="bg-surface-container round overflow-hidden shadow-2xl mb-6">
           <img :src="mainImage" :alt="artwork.title" class="w-full h-full object-cover" />
         </div>
         
@@ -13,7 +13,7 @@
             v-for="(img, idx) in artwork.images" 
             :key="idx"
             @click="mainImage = img"
-            class="w-24 h-24 flex-shrink-0 rounded-md overflow-hidden cursor-pointer border-2 transition-all duration-300"
+            class="w-24 h-24 flex-shrink-0 round overflow-hidden cursor-pointer border-2 transition-all duration-300"
             :class="mainImage === img ? 'border-primary' : 'border-transparent hover:ring-2 hover:ring-primary-container hover:border-transparent'"
           >
             <img :src="img" :alt="`Thumbnail ${Number(idx)+1}`" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Related Artworks -->
-    <div class="max-w-7xl mx-auto px-6 pt-16 border-t border-surface-container">
+    <div class="container mx-auto px-6 pt-16 border-t border-surface-container">
       <div class="flex justify-between items-end mb-12">
         <h2 class="text-3xl font-serif text-primary-dim">Related Artworks</h2>
         <router-link to="/gallery" class="text-primary hover:text-primary-dim transition-colors uppercase tracking-widest text-sm font-medium">
@@ -60,7 +60,7 @@
           :to="'/artwork/' + relArt.id"
           class="group block relative"
         >
-          <div class="aspect-[4/5] overflow-hidden rounded-md bg-surface-container mb-4 shadow-sm relative">
+          <div class="aspect-[4/5] overflow-hidden round bg-surface-container mb-4 shadow-sm relative">
             <img :src="relArt.images[0]" :alt="relArt.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
             <!-- Overlay on hover -->
             <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

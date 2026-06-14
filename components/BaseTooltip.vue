@@ -3,7 +3,7 @@
     <slot />
     <!-- Tooltip Bubble -->
     <span 
-      class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-on-surface text-surface text-[10px] font-bold uppercase tracking-[0.1em] rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[600] translate-y-1 group-hover/tooltip:translate-y-0 shadow-xl border border-white/10"
+      class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-on-surface text-surface text-[10px] font-bold uppercase tracking-[0.1em] round opacity-0 group-hover/tooltip:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[600] translate-y-1 group-hover/tooltip:translate-y-0 shadow-xl border border-white/10"
     >
       {{ text }}
     </span>

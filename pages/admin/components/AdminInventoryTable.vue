@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-auto rounded-2xl border border-surface-container bg-surface-container-lowest shadow-sm">
+  <div class="overflow-x-auto round border border-surface-container bg-surface-container-lowest shadow-sm">
     <table class="w-full text-left border-collapse">
       <thead>
         <tr class="border-b border-surface-container bg-surface-container-low text-xs font-bold uppercase tracking-wider text-outline">
@@ -17,7 +17,7 @@
           class="hover:bg-surface-container-low/45 transition-colors"
         >
           <td class="px-6 py-4">
-            <div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-high border border-surface-container relative group">
+            <div class="w-16 h-16 round overflow-hidden bg-surface-container-high border border-surface-container relative group">
               <img :src="artwork.images[0]" :alt="artwork.title" class="w-full h-full object-cover" />
               <span class="absolute bottom-0 right-0 bg-black/60 px-1 py-0.5 rounded-tl-md text-[8px] text-white font-bold">
                 {{ artwork.images.length }} Img
@@ -35,7 +35,7 @@
               <span 
                 v-for="tag in artwork.tags" 
                 :key="tag" 
-                class="text-[9px] px-2 py-0.5 rounded-sm bg-tertiary-container text-on-tertiary-container font-bold tracking-wider uppercase"
+                class="text-[9px] px-2 py-0.5 round bg-tertiary-container text-on-tertiary-container font-bold tracking-wider uppercase"
               >
                 {{ tag }}
               </span>

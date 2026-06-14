@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen overflow-hidden bg-surface flex items-center justify-center p-6">
-    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl shadow-primary/5 p-8 border border-surface-container overflow-hidden relative">
+    <div class="max-w-md w-full bg-white round shadow-xl shadow-primary/5 p-8 border border-surface-container overflow-hidden relative">
       <!-- Decorative background element -->
       <div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
       
@@ -10,7 +10,7 @@
         </header>
 
         <form @submit.prevent="handleLogin" class="space-y-6">
-          <div v-if="errorMsg" class="p-4 bg-error/10 border border-error/20 rounded-lg text-error text-sm text-center">
+          <div v-if="errorMsg" class="p-4 bg-error/10 border border-error/20 round text-error text-sm text-center">
             {{ errorMsg }}
           </div>
 
@@ -21,7 +21,7 @@
               v-model="username"
               type="text" 
               required
-              class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
+              class="w-full bg-surface-container-low border-none round px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
               placeholder="admin"
             />
           </div>
@@ -33,7 +33,7 @@
               v-model="password"
               type="password" 
               required
-              class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
+              class="w-full bg-surface-container-low border-none round px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
               placeholder="••••••••"
             />
           </div>
